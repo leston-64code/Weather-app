@@ -1,7 +1,64 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.min.css);
+@import url('https://fonts.googleapis.com/css2?family=Gantari:wght@100;200;300;400;600&display=swap');
 
-i{
+/* i{
     font-size: 100px;
     color:white
+} */
+.one{
+    border:2px solid red;
+    width:70vw;
+    height: 100vh;
+    margin: auto;
+    text-align: center;
+    font-family: 'Gantari', sans-serif;
+    
+}
+
+.two{
+    /* border:2px solid blue; */
+    /* margin-top: 40px; */
+    width: 50%;
+    /* margin: auto; */
+    margin: 40px auto;
+}
+
+.search-box{
+    /* border: 2px solid yellow; */
+    margin:2px;
+    display: flex;
+    
+}
+
+.search-box-one{
+   /* border:1px solid greenyellow; */
+   width: 70%;
+   background-color: wheat;
+}
+.search-box-two{
+   /* border:1px solid red; */
+   width: 30%;
+}
+
+.search-input{
+    width: 100%;
+    height: 28px;
+    /* border-radius: 10px; */
+    text-align: center;
+    font-family: 'Gantari', sans-serif;
+    font-size: 1rem;
+}
+
+.search-button{
+    font-family: 'Gantari', sans-serif;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(81, 214, 214);
+    font-size: 1rem;
+    cursor: pointer;
+
+}
+.search-button:hover{
+    background-color: wheat;
 }
