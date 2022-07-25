@@ -9,7 +9,7 @@
 .one{
     border:2px solid red;
     width:70vw;
-    height: 100vh;
+    /* height: 100vh; */
     margin: auto;
     text-align: center;
     font-family: 'Gantari', sans-serif;
@@ -26,6 +26,7 @@
 
 .search-box{
     /* border: 2px solid yellow; */
+    /* width: 100%; */
     margin:2px;
     display: flex;
     height: 41px;
@@ -64,4 +65,44 @@
 }
 .search-button:hover{
     background-color: wheat;
+}
+
+
+.three{
+    border:1px solid red;
+    width: 70%;
+    margin: auto;
+    margin-top: 100px;
+    height: 500px;
+    margin-bottom: 100px;
+}
+
+.three-one{
+    border: 2px solid yellow;
+    height: 37%;
+}
+.three-two{
+    border: 2px solid cyan;
+    height: 33%;
+}
+.three-three{
+    border:2px solid orange;
+    height: 27%;
+}
+
+
+@media (max-width:500px){
+    .one{
+        width:100vw
+    }
+    /* .search-button{
+        width: 120%;
+    } */
+
+    .two{
+        width: 80%;
+    }
+    .three{
+        width: 90%;
+    }
 }
