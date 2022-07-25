@@ -69,7 +69,7 @@
 
 
 .three{
-    border:1px solid red;
+    /* border:1px solid red; */
     width: 70%;
     margin: auto;
     margin-top: 100px;
@@ -78,9 +78,18 @@
 }
 
 .three-one{
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     height: 37%;
+    background-color: white;
+    border-radius: 20px 20px 0 0 ;
 }
+
+.icon-one{
+    margin-top: 31px;
+    font-size: 100px;
+}
+
+
 .three-two{
     border: 2px solid cyan;
     height: 33%;
@@ -90,19 +99,92 @@
     height: 27%;
 }
 
+.three-three-flexer{
+    border:1px solid blue;
+    display: flex;
+    height: 100%;
+    
+}
+
+.last-one{
+    border: 1px solid green;
+    width: 25%;
+    border-radius: 0 0 0 20px;
+}
+.last-two{
+    border: 1px solid green;
+    width: 25%;
+   
+}
+.last-three{
+    border: 1px solid green;
+    width: 25%;
+
+}
+.last-four{
+    border: 1px solid green;
+    width: 25%;
+    border-radius: 0 0 20px 0;
+}
+.hello{
+    background-color: white;
+}
+
+.last-container{
+    display:flex;
+    height: 100%;
+}
+
+.onner {
+    border:1px solid red;
+    height:100%;
+    width:30%
+}
+.onner i{
+    font-size: 33px;
+    margin-top: 70%
+}
+
+.twoer{
+    border: 1px solid blue;
+    height:100%;
+    width:70%;
+}
+
 
 @media (max-width:500px){
     .one{
-        width:100vw
+        width:100vw;
     }
-    /* .search-button{
-        width: 120%;
-    } */
+    .icon-one{
+        margin-top: 45px;
+        font-size:80px;
+    }
 
     .two{
         width: 80%;
     }
     .three{
         width: 90%;
+        margin-top:0;
+        
     }
+    .three-three-flexer{
+        flex-wrap: wrap;
+    
+    }
+    .three-three{
+        height: 200px;
+    }
+    .hello{
+        width: 49%;
+        /* height: 50%; */
+    }
+    .last-one{
+        border-radius: 0 0 0 0 ;
+    }
+    .last-three{
+        border-radius: 0 0 0 20px;
+    }
+
 }
