@@ -7,7 +7,7 @@
     color:white
 } */
 .one{
-    border:2px solid red;
+    /* border:2px solid red; */
     width:70vw;
     /* height: 100vh; */
     margin: auto;
@@ -91,38 +91,39 @@
 
 
 .three-two{
-    border: 2px solid cyan;
+    /* border: 2px solid cyan; */
     height: 33%;
+    
 }
 .three-three{
-    border:2px solid orange;
+    /* border:2px solid orange; */
     height: 27%;
 }
 
 .three-three-flexer{
-    border:1px solid blue;
+    /* border:1px solid blue; */
     display: flex;
     height: 100%;
     
 }
 
 .last-one{
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 25%;
     border-radius: 0 0 0 20px;
 }
 .last-two{
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 25%;
    
 }
 .last-three{
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 25%;
 
 }
 .last-four{
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 25%;
     border-radius: 0 0 20px 0;
 }
@@ -136,7 +137,7 @@
 }
 
 .onner {
-    border:1px solid red;
+    /* border:1px solid red; */
     height:100%;
     width:30%
 }
@@ -146,26 +147,105 @@
 }
 
 .twoer{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     height:100%;
     width:70%;
 }
 
+.setter{
+    /* border: 1px solid red; */
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
 
-@media (max-width:500px){
+.ok{
+    /* border:1px solid green */
+}
+.three-two-one{
+    width: 70%;
+    height: 100%;
+} 
+.three-two-two{
+    width: 30%;
+    height: 100%;
+    background-color:  rgb(81, 214, 214);
+} 
+
+.super{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.super-one{
+    text-align: center;
+    /* border:2px solid red; */
+    /* width:40%;
+    height:100%; */
+}
+
+.super-two{
+    /* border:2px solid red; */
+    /* margin-left:5px; */
+    width:60%;
+    height:100%;
+}
+.super-one p{
+    display: inline-block;
+    font-size:52px;
+    color:white
+}
+.child-one{
+    display: inline-block;
+    margin: 0;
+    margin-top: 44px;
+    font-size: 47px;
+    margin-right: 53px;
+    color:white
+}
+.child-two{
+    display: inline-block;
+    margin: 0;
+    margin-right: 85px;
+    color:white
+}
+
+.super-child-one{
+    display: inline-block;
+    color:black;
+    margin: 0;
+    font-size: 25px;
+    margin-top: 49px;
+}
+
+.super-child-two{
+    display: inline-block;
+    color:black;
+    margin: 0;
+    font-size: 25px;
+}
+.twoer p{
+    margin-top: 30px;
+}
+
+@media (max-width:600px){
     .one{
         width:100vw;
     }
     .icon-one{
-        margin-top: 45px;
-        font-size:80px;
+        margin-top: 40px;
+        font-size:70px;
     }
 
     .two{
         width: 80%;
     }
+    .three-one{
+        height: 150px;
+    }
+
     .three{
-        width: 90%;
+        width: 93%;
         margin-top:0;
         
     }
@@ -186,5 +266,40 @@
     .last-three{
         border-radius: 0 0 0 20px;
     }
-
+    .super{
+        flex-direction: column;
+        /* width: 50%; */
+    }
+    .super-one p{
+        /* border: 1px solid red; */
+        width: 100%;
+        font-size: 35px;
+        margin: 0;
+        margin-top: 15px;
+        
+    }
+    .super-two{
+        /* border: 1px solid green; */
+        /* font-size:15px; */
+        width: 100%;
+    }
+    .child-one{
+        font-size: 45px;
+        margin: 0;
+        width: 100%;
+    }
+    .child-two{
+        font-size: 20px;
+        margin: 0;
+    }
+    .super{
+        height: 50px;
+    }
+   
+    .three-three-flexer{
+        width: 102%;
+    }
+    .three-two-two{
+        width: 150px;
+    }
 }
