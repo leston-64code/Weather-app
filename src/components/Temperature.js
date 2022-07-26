@@ -1,84 +1,169 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 
 function Temperature() {
-  return (
-    <div className="one">
+  const [searchdata, setSearchData] = useState("");
+  const [newData, setNewData] = useState();
+  const [newIcon, setNewIcon] = useState("wi-day-sunny");
+  // const [weatherMood,setWeatherMood]=useState("")
+  const getWeatherData = async () => {
+    try {
+      let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchdata}&units=metric&appid=b7560a133b4600aada1d2bd79af34b68`;
 
+      const res = await fetch(url);
+      const data = await res.json();
+      await setNewData(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-      <div className="two">
-        <div className="search-box">
-          <div className="search-box-one">
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Enter city"
-            />
-          </div>
-          <div className="search-box-two">
-            <button className="search-button">Search</button>
+  useEffect(() => {
+    async function getWeatherDataone(user) {
+      try {
+        let urle = `https://api.openweathermap.org/data/2.5/weather?q=${user}&units=metric&appid=b7560a133b4600aada1d2bd79af34b68`;
+        const rese = await fetch(urle);
+        const datae = await rese.json();
+        setNewData(datae);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getWeatherDataone("mumbai");
+  }, []);
+
+  if (newData) {
+    // Setttig sunset data
+    let sec = newData.sys.sunset;
+    let date = new Date(sec * 1000);
+    let timeStr = `${date.getHours()}:${date.getMinutes()}`;
+    let weatherMood = newData.weather[0].main;
+
+    return (
+      <div className="one">
+        <div className="two">
+          <div className="search-box">
+            <div className="search-box-one">
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Enter city"
+                value={searchdata}
+                onChange={(e) => {
+                  setSearchData(e.target.value);
+                }}
+              />
+            </div>
+            <div className="search-box-two">
+              <button className="search-button" onClick={getWeatherData}>
+                Search
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="three">
-        <div className="three-one">
-        <i class="wi wi-day-storm-showers icon-one"></i>
-        </div>
-        <div className="three-two">
-          <div className="setter">
-            <div className="three-two-one ok">
-              <div className="super">
-                <div className="super-one">
-               <p>25.57&#8451;</p>
+        <div className="three">
+          <div className="three-one">
+            {/* <i className={`wi ${newIcon} icon-one`}></i> */}
+            {/* <i className={newData.weather[0].main=="Haze"?}></i> */}
+            {newData.weather[0].main == "Haze" ? (
+              <i class="wi wi-day-haze icon-one"></i>
+            ) : newData.weather[0].main == "Rain" ? (
+              <i class="wi wi-raindrops icon-one"></i>
+            ) : newData.weather[0].main == "Clouds" ? (
+              <i class="wi wi-cloudy icon-one"></i>
+            ) : newData.weather[0].main == "Clear" ? (
+              <i class="wi wi-day-sunny icon-one"></i>
+            ) : (
+              <i class="wi wi-day-sunny icon-one"></i>
+            )}
+          </div>
+          <div className="three-two">
+            <div className="setter">
+              <div className="three-two-one ok">
+                <div className="super">
+                  <div className="super-one">
+                    <p>{newData.main.temp}&#8451;</p>
                   </div>
-                <div className="super-two">
-                  <p className="child-one">CLOUDS</p><br />
-                  <p className="child-two">Tokyo,JP</p>
+                  <div className="super-two">
+                    <p className="child-one">{newData.weather[0].main}</p>
+                    <br />
+                    <p className="child-two">
+                      {newData.name},{newData.sys.country}{" "}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="three-two-two ok">
+                <p className="super-child-one">{new Date().toLocaleString()}</p>
+                {/* <p className="super-child-two">09:01 AM</p> */}
+              </div>
+            </div>
+          </div>
+          <div className="three-three">
+            <div className="three-three-flexer">
+              <div className="last-one hello ">
+                <div className="last-container">
+                  <div className="onner">
+                    <i className="wi wi-sunset"></i>
+                  </div>
+                  <div className="twoer">
+                    <p>
+                      Sunset
+                      <br />
+                      {timeStr}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="last-two hello ">
+                <div className="last-container">
+                  <div className="onner">
+                    <i className="wi wi-humidity"></i>
+                  </div>
+                  <div className="twoer">
+                    <p>
+                      Humidity
+                      <br />
+                      {newData.main.humidity}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="last-three hello ">
+                <div className="last-container">
+                  <div className="onner">
+                    <i className="wi wi-fog"></i>
+                  </div>
+                  <div className="twoer">
+                    <p>
+                      Pressure
+                      <br />
+                      {newData.main.pressure}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="last-four hello ">
+                <div className="last-container">
+                  <div className="onner">
+                    <i className="wi wi-strong-wind"></i>
+                  </div>
+                  <div className="twoer">
+                    <p>
+                      Wind
+                      <br />
+                      {newData.wind.speed},km/hr
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="three-two-two ok">
-              <p className="super-child-one">26/07/22</p>
-              <p className="super-child-two">09:01 AM</p>
-            </div>
-          </div>
-        </div>
-        <div className="three-three">
-          <div className="three-three-flexer">
-          <div className="last-one hello ">
-            <div className="last-container">
-              <div className="onner"><i class="wi wi-sunset"></i></div>
-              <div className="twoer"><p>Sunset
-              <br />10:03 PM</p></div>
-            </div>
-          </div>
-          <div className="last-two hello ">
-          <div className="last-container">
-          <div className="onner"><i class="wi wi-humidity"></i></div>
-              <div className="twoer"><p>Humidity
-              <br />10:03 PM</p></div>
-          </div>
-          </div>
-          <div className="last-three hello ">
-          <div className="last-container">
-          <div className="onner"><i class="wi wi-fog"></i></div>
-              <div className="twoer"><p>Pressure
-              <br />10:03 PM</p></div>
-          </div>
-          </div>
-          <div className="last-four hello ">
-          <div className="last-container">
-          <div className="onner"><i class="wi wi-strong-wind"></i></div>
-              <div className="twoer"><p>Wind
-              <br />10:03 PM</p></div>
-          </div>
-          </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Temperature;
