@@ -21,7 +21,8 @@
     /* margin-top: 40px; */
     width: 50%;
     /* margin: auto; */
-    margin: 40px auto;
+    margin: 0 auto;
+    margin-top: 105px;
 }
 
 .search-box{
@@ -72,7 +73,7 @@
     /* border:1px solid red; */
     width: 70%;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 44px;
     height: 500px;
     margin-bottom: 100px;
 }
@@ -246,7 +247,7 @@
 
     .three{
         width: 93%;
-        margin-top:0;
+        margin-top:20px;
         
     }
     .three-three-flexer{
