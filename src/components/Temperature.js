@@ -4,8 +4,7 @@ import "./style.css";
 function Temperature() {
   const [searchdata, setSearchData] = useState("");
   const [newData, setNewData] = useState();
-  const [newIcon, setNewIcon] = useState("wi-day-sunny");
-  // const [weatherMood,setWeatherMood]=useState("")
+  
   const getWeatherData = async () => {
     try {
       let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchdata}&units=metric&appid=b7560a133b4600aada1d2bd79af34b68`;
@@ -37,7 +36,7 @@ function Temperature() {
     let sec = newData.sys.sunset;
     let date = new Date(sec * 1000);
     let timeStr = `${date.getHours()}:${date.getMinutes()}`;
-    let weatherMood = newData.weather[0].main;
+    
 
     return (
       <div className="one">
@@ -66,16 +65,16 @@ function Temperature() {
           <div className="three-one">
             {/* <i className={`wi ${newIcon} icon-one`}></i> */}
             {/* <i className={newData.weather[0].main=="Haze"?}></i> */}
-            {newData.weather[0].main == "Haze" ? (
-              <i class="wi wi-day-haze icon-one"></i>
-            ) : newData.weather[0].main == "Rain" ? (
-              <i class="wi wi-raindrops icon-one"></i>
-            ) : newData.weather[0].main == "Clouds" ? (
-              <i class="wi wi-cloudy icon-one"></i>
-            ) : newData.weather[0].main == "Clear" ? (
-              <i class="wi wi-day-sunny icon-one"></i>
+            {newData.weather[0].main === "Haze" ? (
+              <i className="wi wi-day-haze icon-one"></i>
+            ) : newData.weather[0].main === "Rain" ? (
+              <i className="wi wi-raindrops icon-one"></i>
+            ) : newData.weather[0].main === "Clouds" ? (
+              <i className="wi wi-cloudy icon-one"></i>
+            ) : newData.weather[0].main === "Clear" ? (
+              <i className="wi wi-day-sunny icon-one"></i>
             ) : (
-              <i class="wi wi-day-sunny icon-one"></i>
+              <i className="wi wi-day-sunny icon-one"></i>
             )}
           </div>
           <div className="three-two">
