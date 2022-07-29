@@ -73,6 +73,8 @@ function Temperature() {
               <i className="wi wi-cloudy icon-one"></i>
             ) : newData.weather[0].main === "Clear" ? (
               <i className="wi wi-day-sunny icon-one"></i>
+            ) : newData.weather[0].main === "Mist" ? (
+              <i className="wi wi-night-fog icon-one"></i>
             ) : (
               <i className="wi wi-day-sunny icon-one"></i>
             )}
