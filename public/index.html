@@ -28,7 +28,22 @@
       background-image: linear-gradient(132deg, #f4d03f 0%, #16a085 100%);
     "
   >
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+ 
+  
     <div id="root"></div>
+    <script>
+      function activatePlacesSearch(){
+        var input=document.getElementById('search_item_auto')
+        // var input=window.HTMLInputElement("search_item_auto")
+        var autocomplete=new google.maps.places.Autocomplete(input)
+       
+      }
+    </script>
+    <script  async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0ohC8t6HLc4OXUlbAxHw8bLbb-kkJoK4&libraries=places&callback=activatePlacesSearch" >
+</script>
   </body>
+  
+
+  
 </html>

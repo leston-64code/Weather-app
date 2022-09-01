@@ -6,15 +6,39 @@ function Temperature() {
   const [newData, setNewData] = useState();
   
   const getWeatherData = async () => {
-    try {
-      let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchdata}&units=metric&appid=b7560a133b4600aada1d2bd79af34b68`;
+    // try {
+    //   let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchdata}&units=metric&appid=b7560a133b4600aada1d2bd79af34b68`;
 
-      const res = await fetch(url);
-      const data = await res.json();
-      await setNewData(data);
+    //   const res = await fetch(url);
+    //   const data = await res.json();
+    //   await setNewData(data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+    try {
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchdata.trim()}&units=metric&appid=b7560a133b4600aada1d2bd79af34b68`)
+      .then((res)=>{
+        return res.json()
+      }).then((data)=>{
+        // setNewData(data)
+        // console.log(data)
+        if(data.cod !== 400){
+          setNewData(data)
+        // console.log(data)
+        
+        }else{
+          return  alert("error")
+        }
+        // return 
+      }).catch((error)=>{
+        // console.log(error)
+        return 0
+      })
     } catch (error) {
-      console.log(error);
+      return console.log(error)
     }
+
   };
 
   useEffect(() => {
@@ -31,12 +55,13 @@ function Temperature() {
     getWeatherDataone("mumbai");
   }, []);
 
-  if (newData) {
+  if (newData ){
     // Setttig sunset data
+    // console.log(newData)
     let sec = newData.sys.sunset;
     let date = new Date(sec * 1000);
-    let timeStr = `${date.getHours()}:${date.getMinutes()}`;
-    
+    let  timeStr = `${date.getHours()}:${date.getMinutes()}`;
+  
 
     return (
       <div className="one">
@@ -168,5 +193,6 @@ function Temperature() {
     );
   }
 }
+
 
 export default Temperature;
